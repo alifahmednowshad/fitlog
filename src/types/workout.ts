@@ -7,4 +7,9 @@ export interface Workout {
   duration: number;
   caloriesBurned: number;
   rating: number;
+  description?: string;
+  difficulty?: string;
+  sets?: number;
+  reps?: string;
+  instructions?: string[];
 }
