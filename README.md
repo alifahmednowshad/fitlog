@@ -16,7 +16,6 @@ A dark, no-nonsense gym companion: pick a lift, lock it into today's plan, and w
 
 **FitLog** is a responsive workout library web app built with **Next.js (App Router)**. Users can browse a library of lifts, open a detailed page for each workout, add workouts to **Today's Plan** (max 5 lifts) or save them for later, and track total exercises, minutes, and calories on the **My Plan** page. Plan and saved data are persisted in `localStorage`, so nothing is lost on reload.
 
-This project was built for the **B14-A6 (Assignment 6)** web development course, following the provided Figma design.
 
 ---
 
