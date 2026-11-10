@@ -102,7 +102,7 @@ src/
 
 ```bash
 # 1. Clone the repository
-git clone YOUR_GITHUB_REPO_LINK_HERE
+git clone https://github.com/alifahmednowshad/fitlog.git
 
 # 2. Go to the project folder
 cd fitlog
