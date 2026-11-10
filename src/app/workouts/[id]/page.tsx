@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Workout } from "@/types/workout";
@@ -7,6 +8,24 @@ async function getWorkout(id: string): Promise<Workout | null> {
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
   if (!res.ok) return null;
   return res.json();
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const w = await getWorkout(id);
+
+  if (!w) {
+    return { title: "Workout not found" };
+  }
+
+  return {
+    title: w.name,
+    description: w.description,
+  };
 }
 
 export default async function WorkoutDetails({

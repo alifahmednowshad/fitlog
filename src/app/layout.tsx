@@ -19,7 +19,10 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  title: "FitLog — Workout Library",
+  title: {
+    default: "FitLog — Workout Library",
+    template: "%s | FitLog",
+  },
   description: "Pick a lift, lock it into today's plan, and log every set.",
 };
 
