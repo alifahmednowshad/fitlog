@@ -23,6 +23,7 @@ export function FitLogProvider({ children }: { children: React.ReactNode }) {
   const [saved, setSaved] = useState<Workout[]>([]);
   const [loaded, setLoaded] = useState(false);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     try {
       setPlan(JSON.parse(localStorage.getItem("fitlog-plan") || "[]"));
@@ -30,6 +31,7 @@ export function FitLogProvider({ children }: { children: React.ReactNode }) {
     } catch {}
     setLoaded(true);
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (!loaded) return;

@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import type { Workout } from "@/types/workout";
 import LibraryCard from "./LibrayCard";
 
+
 type SortKey = "duration" | "caloriesBurned" | "rating";
 
 export default function LibraryGrid({ workouts }: { workouts: Workout[] }) {

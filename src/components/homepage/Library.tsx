@@ -1,6 +1,7 @@
 import { Workout } from "@/types/workout";
 import LibraryGrid from "./LibraryGrid";
 
+
 const getLibrary = async (): Promise<Workout[]> => {
   const response = await fetch("https://api.abcz.workers.dev/api/fitlog");
 
