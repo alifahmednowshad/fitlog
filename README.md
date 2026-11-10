@@ -1,46 +1,91 @@
 <div align="center">
 
-# 💪 FitLog — Workout Library
+<img src="./src/assets/logo.png" alt="FitLog logo" width="90" />
 
-**Train with intent. Log every set.**
+# FITLOG
 
-A dark, no-nonsense gym companion: pick a lift, lock it into today's plan, and watch the week's work add up.
+### Train with intent. Log every set.
 
-[🌐 Live Demo](YOUR_LIVE_LINK_HERE) · [📦 GitHub Repo](YOUR_GITHUB_REPO_LINK_HERE)
+A dark, no-nonsense gym companion: pick a lift, lock it into today's plan,<br/>and watch the week's work add up.
 
-![FitLog Screenshot](./public/screenshot.png)
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-fiitlog.vercel.app-C8FF00?style=for-the-badge&labelColor=0b0c0f)](https://fiitlog.vercel.app)
+[![GitHub Repo](https://img.shields.io/badge/📦_Source_Code-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/alifahmednowshad/fitlog)
+
+<br/>
+
+![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![daisyUI](https://img.shields.io/badge/daisyUI_5-5A0EF8?style=flat-square&logo=daisyui&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 </div>
 
 ---
 
-## 📖 About The Project
+## 📑 Table of Contents
 
-**FitLog** is a responsive workout library web app built with **Next.js (App Router)**. Users can browse a library of lifts, open a detailed page for each workout, add workouts to **Today's Plan** (max 5 lifts) or save them for later, and track total exercises, minutes, and calories on the **My Plan** page. Plan and saved data are persisted in `localStorage`, so nothing is lost on reload.
+- [About the Project](#-about-the-project)
+- [Preview](#-preview)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Pages & Routes](#-pages--routes)
+- [API](#-api)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Deployment](#-deployment)
+- [Author](#-author)
 
-This project was built for the **B14-A6 (Assignment 6)** web development course, following the provided Figma design.
+---
+
+## 📖 About the Project
+
+**FitLog** is a fast, responsive workout library built with **Next.js (App Router)**.
+Browse a library of lifts, open a detailed page for each workout, build **Today's Plan** (max 5 lifts) or save workouts for later, and watch your total **exercises, minutes and calories** update live on the **My Plan** page.
+
+Everything you add is stored in `localStorage`, so your plan is still there after a reload.
+
+> 🎯 **Goal:** Make planning a workout as quick as picking a card — no sign-ups, no clutter.
+
+---
+
+## 🖼️ Preview
+
+| Home | Workout Details |
+| :---: | :---: |
+| ![Home page](./docs/screenshots/home.png) | ![Details page](./docs/screenshots/details.png) |
+
+| My Plan | Mobile |
+| :---: | :---: |
+| ![My Plan page](./docs/screenshots/my-plan.png) | ![Mobile view](./docs/screenshots/mobile.png) |
 
 ---
 
 ## ✨ Key Features
 
-1. **📚 Workout Library** — All workouts fetched from the API and shown as cards (image, muscle tags, equipment, duration, calories, rating) in a responsive 3-column grid.
-2. **🔀 Sort Dropdown** — Re-sort the library by **Duration**, **Calories**, or **Rating** instantly.
-3. **🔍 Detailed Workout Page** — Two-column layout with a large image, key specs table, description, muscle tags, and step-by-step instructions.
-4. **📅 Today's Plan & Saved Lists** — Add a workout to today's plan (capped at 5 lifts) or save it for later, with live **Plan** and **Saved** counters in the navbar.
-5. **📊 Live Metrics** — The My Plan page shows total **Exercises**, **Minutes**, and **Calories**, updating as workouts are added or removed.
-6. **✅ Mark as Done & Remove** — Complete or remove any workout from the plan, with a toast notification for every action.
-7. **💾 Persistent Data** — Plan and saved workouts survive a page reload using `localStorage`.
-8. **⏳ Loading & 404 States** — Spinner while data loads, a "Loading workouts…" state on My Plan, an empty state with a CTA, and a custom 404 page.
-9. **📱 Fully Responsive** — Works on mobile, tablet, and desktop, including a mobile navigation menu.
+| | Feature | What it does |
+| :---: | --- | --- |
+| 📚 | **Workout Library** | Cards with image, muscle tags, equipment, duration, calories and rating in a responsive grid |
+| 🔀 | **Sort Dropdown** | Instantly re-sort by **Duration**, **Calories** or **Rating** |
+| 🔍 | **Workout Details** | Two-column page with a large image, key specs, description, muscle tags and step-by-step instructions |
+| 📅 | **Today's Plan & Saved** | Add lifts to today's plan (capped at 5) or save them for later |
+| 🔔 | **Live Navbar Counters** | **Plan** and **Saved** badges update the moment you add or remove a workout |
+| 📊 | **Live Metrics** | Total **Exercises**, **Minutes** and **Calories** recalculate automatically |
+| ✅ | **Mark as Done & Remove** | Complete or remove any planned workout, with a toast for every action |
+| 💾 | **Persistent Data** | Plan and saved lists survive a page reload via `localStorage` |
+| ⏳ | **Loading, Empty & 404 States** | Spinner while fetching, friendly empty states, and a custom 404 page |
+| 📱 | **Fully Responsive** | Looks great on mobile, tablet and desktop, with a mobile navigation menu |
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
 | Technology | Purpose |
 | --- | --- |
-| [Next.js 16](https://nextjs.org/) (App Router) | Framework, routing, server-side data fetching |
+| [Next.js 16](https://nextjs.org/) (App Router) | Framework, routing and server-side data fetching |
 | [React 19](https://react.dev/) | UI library |
 | [TypeScript](https://www.typescriptlang.org/) | Type safety |
 | [Tailwind CSS 4](https://tailwindcss.com/) | Styling and responsive design |
@@ -55,19 +100,21 @@ This project was built for the **B14-A6 (Assignment 6)** web development course,
 
 | Route | Description |
 | --- | --- |
-| `/` | Home — hero banner and the workout library with sort |
-| `/workouts/[id]` | Details page for a single workout |
-| `/my-plan` | My Plan — metrics, Today's Plan and Saved tabs |
-| `*` | Custom 404 page |
+| `/` | **Home** — hero banner and the workout library with sorting |
+| `/workouts/[id]` | **Details** — full information for a single workout |
+| `/my-plan` | **My Plan** — live metrics, *Today's Plan* and *Saved* tabs |
+| `*` | **404** — custom page for unknown routes |
 
 ---
 
 ## 🔌 API
 
-Workout data is fetched from:
+Workout data is fetched from a public API:
 
-- All workouts: `https://api.abcz.workers.dev/api/fitlog`
-- Single workout: `https://api.abcz.workers.dev/api/fitlog/:id`
+| Endpoint | Description |
+| --- | --- |
+| `GET https://api.abcz.workers.dev/api/fitlog` | All workouts |
+| `GET https://api.abcz.workers.dev/api/fitlog/:id` | A single workout |
 
 ---
 
@@ -97,16 +144,16 @@ src/
 
 ### Prerequisites
 
-- Node.js 20 or later
+- [Node.js](https://nodejs.org/) 20 or later
 - npm
 
 ### Installation
 
 ```bash
 # 1. Clone the repository
-git clone YOUR_GITHUB_REPO_LINK_HERE
+git clone https://github.com/alifahmednowshad/fitlog.git
 
-# 2. Go to the project folder
+# 2. Move into the project folder
 cd fitlog
 
 # 3. Install dependencies
@@ -116,25 +163,40 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-### Production Build
+### Available Scripts
 
-```bash
-npm run build
-npm start
-```
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm start` | Run the production build |
+| `npm run lint` | Check the code with ESLint |
 
 ---
 
 ## 🌍 Deployment
 
-The project is deployed on **Vercel**. Reloading any page works without errors, and unknown routes show a custom 404 page.
+The app is deployed on **[Vercel](https://vercel.com)** and redeploys automatically on every push to `main`.
+Reloading any page works without errors, and unknown routes show the custom 404 page.
+
+👉 **Live site:** [fiitlog.vercel.app](https://fiitlog.vercel.app)
+
+---
+
+## 👤 Author
+
+**Alif Ahmed Nowshad**
+
+[![GitHub](https://img.shields.io/badge/GitHub-alifahmednowshad-181717?style=flat-square&logo=github)](https://github.com/alifahmednowshad)
 
 ---
 
 <div align="center">
 
-© 2026 FitLog — Workout Library. Train hard, log honest.
+⭐ If you like this project, give it a star!
+
+<sub>© 2026 FitLog — Workout Library. Train hard, log honest.</sub>
 
 </div>
