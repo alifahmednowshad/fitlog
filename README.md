@@ -10,8 +10,9 @@ A dark, no-nonsense gym companion: pick a lift, lock it into today's plan,<br/>a
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-fiitlog.vercel.app-C8FF00?style=for-the-badge&labelColor=0b0c0f)](https://fiitlog.vercel.app)
-[![GitHub Repo](https://img.shields.io/badge/📦_Source_Code-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/alifahmednowshad/fitlog)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-0b0c0f?style=for-the-badge)](https://fiitlog.vercel.app)
+[![Source Code](https://img.shields.io/badge/Source_Code-555555?style=for-the-badge&logo=github&logoColor=white)](https://github.com/alifahmednowshad/fitlog)
+
 
 <br/>
 
@@ -26,21 +27,6 @@ A dark, no-nonsense gym companion: pick a lift, lock it into today's plan,<br/>a
 
 ---
 
-## 📑 Table of Contents
-
-- [About the Project](#-about-the-project)
-- [Preview](#-preview)
-- [Key Features](#-key-features)
-- [Tech Stack](#-tech-stack)
-- [Pages & Routes](#-pages--routes)
-- [API](#-api)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Deployment](#-deployment)
-- [Author](#-author)
-
----
-
 ## 📖 About the Project
 
 **FitLog** is a fast, responsive workout library built with **Next.js (App Router)**.
@@ -49,18 +35,6 @@ Browse a library of lifts, open a detailed page for each workout, build **Today'
 Everything you add is stored in `localStorage`, so your plan is still there after a reload.
 
 > 🎯 **Goal:** Make planning a workout as quick as picking a card — no sign-ups, no clutter.
-
----
-
-## 🖼️ Preview
-
-| Home | Workout Details |
-| :---: | :---: |
-| ![Home page](./docs/screenshots/home.png) | ![Details page](./docs/screenshots/details.png) |
-
-| My Plan | Mobile |
-| :---: | :---: |
-| ![My Plan page](./docs/screenshots/my-plan.png) | ![Mobile view](./docs/screenshots/mobile.png) |
 
 ---
 
@@ -197,6 +171,6 @@ Reloading any page works without errors, and unknown routes show the custom 404 
 
 ⭐ If you like this project, give it a star!
 
-<sub>© 2026 FitLog — Workout Library. Train hard, log honest.</sub>
+<sub>© 2026 FitLog — Workout Library. Train hard, log honestly.</sub>
 
 </div>
