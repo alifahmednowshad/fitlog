@@ -1,52 +1,14 @@
 "use client";
-import { useFitLog } from "@/context/FitLogContext";
+
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import logo from "../../assets/logo.png"
+import { Menu, X } from "lucide-react";
+import logo from "../../assets/logo.png";
+import { useFitLog } from "@/context/FitLogContext";
 
-type IconProps = {
-  size?: number;
-  strokeWidth?: number;
-  className?: string;
-  "aria-hidden"?: boolean | "true" | "false";
-};
-
-const Menu = ({ size = 21, strokeWidth = 2, ...props }: IconProps) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={strokeWidth}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M3 6h18" />
-    <path d="M3 12h18" />
-    <path d="M3 18h18" />
-  </svg>
-);
-
-const X = ({ size = 21, strokeWidth = 2, ...props }: IconProps) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={strokeWidth}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M18 6 6 18" />
-    <path d="m6 6 12 12" />
-  </svg>
-);
+const display = "font-[family-name:var(--font-oswald)]";
 
 export default function Navbar() {
   const { plan, saved } = useFitLog();
@@ -59,139 +21,112 @@ export default function Navbar() {
   const isWorkoutActive = pathname === "/";
   const isPlanActive = pathname === "/my-plan";
 
-  const closeMobileMenu = () => {
-    setMobileOpen(false);
-  };
+  const closeMobileMenu = () => setMobileOpen(false);
+
+  const linkClass = (active: boolean) =>
+    `rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+      active
+        ? "bg-[#ccff00]/10 text-[#ccff00]"
+        : "text-white/60 hover:text-white"
+    }`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0b0b0b]/95 backdrop-blur-md">
-      <nav className="mx-auto flex h-18 w-full max-w-360 items-center justify-between px-5 sm:px-6 lg:px-10 xl:px-14">
-        {/* ==================== LOGO ==================== */}
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0f1115]/95 backdrop-blur-md">
+      <nav className="mx-auto grid h-16 w-full max-w-360 grid-cols-[1fr_auto] items-center px-5 sm:px-6 md:grid-cols-[1fr_auto_1fr] lg:px-10 xl:px-14">
+        {/* LOGO */}
         <Link
           href="/"
           onClick={closeMobileMenu}
-          className="group flex shrink-0 items-center gap-2"
+          className="flex shrink-0 items-center gap-2 justify-self-start"
           aria-label="FitLog Home"
         >
-          <Image src={logo} alt="" />
-          <span className="text-xl font-black tracking-[-0.04em] text-white sm:text-2xl">
-            FIT<span className="text-[#ccff00]">LOG</span>
+          <Image src={logo} alt="" className="h-7 w-auto" />
+          <span
+            className={`${display} text-2xl font-bold tracking-wide text-white`}
+          >
+            FITLOG
           </span>
         </Link>
 
-        {/* ==================== DESKTOP NAV ==================== */}
+        {/* CENTER LINKS */}
         <div className="hidden items-center gap-1 md:flex">
-          <Link
-            href="/"
-            className={`relative px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] transition-colors ${
-              isWorkoutActive
-                ? "text-[#ccff00]"
-                : "text-white/60 hover:text-white"
-            }`}
-          >
-            Workout
-            {isWorkoutActive && (
-              <span className="absolute -bottom-5 left-1/2 h-0.75 w-6 -translate-x-1/2 bg-[#ccff00]" />
-            )}
+          <Link href="/" className={linkClass(isWorkoutActive)}>
+            Workouts
           </Link>
-
-          <Link
-            href="/my-plan"
-            className={`relative px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] transition-colors ${
-              isPlanActive ? "text-[#ccff00]" : "text-white/60 hover:text-white"
-            }`}
-          >
+          <Link href="/my-plan" className={linkClass(isPlanActive)}>
             My Plan
-            {isPlanActive && (
-              <span className="absolute -bottom-5 left-1/2 h-0.75 w-6 -translate-x-1/2 bg-[#ccff00]" />
-            )}
           </Link>
         </div>
 
-        {/* ==================== DESKTOP COUNTERS ==================== */}
-        <div className="hidden items-center gap-2 sm:flex">
+        {/* COUNTERS */}
+        <div className="hidden items-center gap-5 justify-self-end md:flex">
           <Link
             href="/my-plan"
-            className="group flex items-center gap-2 rounded-full bg-[#ccff00] px-3 py-1.5 text-[#0b0b0b] transition-transform hover:scale-[1.03]"
+            className="flex items-center gap-2 text-sm text-white"
             aria-label={`Today's plan: ${planCount} exercises`}
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.12em]">
-              Plan
-            </span>
-
-            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0b0b0b] px-1.5 text-[11px] font-black text-[#ccff00]">
+            Plan
+            <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-[#ccff00] px-1.5 text-xs font-bold text-black">
               {planCount}
             </span>
           </Link>
 
           <Link
             href="/my-plan"
-            className="group flex items-center gap-2 rounded-full border border-white/30 px-3 py-1.5 text-white transition-colors hover:border-[#ccff00] hover:text-[#ccff00]"
+            className="flex items-center gap-2 text-sm text-white/60 hover:text-white"
             aria-label={`Saved workouts: ${savedCount}`}
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.12em]">
-              Saved
-            </span>
-
-            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-white/10 px-1.5 text-[11px] font-black">
+            Saved
+            <span className="flex h-6 min-w-6 items-center justify-center rounded-full border border-white/30 px-1.5 text-xs font-bold text-white">
               {savedCount}
             </span>
           </Link>
         </div>
 
-        {/* ==================== MOBILE MENU BUTTON ==================== */}
+        {/* MOBILE BUTTON */}
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white transition-colors hover:border-[#ccff00] hover:text-[#ccff00] md:hidden"
+          className="flex h-10 w-10 items-center justify-center justify-self-end rounded-lg border border-white/15 text-white transition-colors hover:border-[#ccff00] hover:text-[#ccff00] md:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? (
-            <X size={21} aria-hidden="true" />
-          ) : (
-            <Menu size={21} aria-hidden="true" />
-          )}
+          {mobileOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
       </nav>
 
-      {/* ==================== MOBILE MENU ==================== */}
+      {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-[#0b0b0b] md:hidden">
+        <div className="border-t border-white/10 bg-[#0f1115] md:hidden">
           <div className="mx-auto flex max-w-360 flex-col px-5 py-4 sm:px-6">
-            {/* Navigation */}
             <Link
               href="/"
               onClick={closeMobileMenu}
-              className={`border-b border-white/10 py-4 text-sm font-black uppercase tracking-[0.08em] ${
+              className={`border-b border-white/10 py-4 text-sm font-medium ${
                 isWorkoutActive ? "text-[#ccff00]" : "text-white/70"
               }`}
             >
-              Workout
+              Workouts
             </Link>
 
             <Link
               href="/my-plan"
               onClick={closeMobileMenu}
-              className={`border-b border-white/10 py-4 text-sm font-black uppercase tracking-[0.08em] ${
+              className={`border-b border-white/10 py-4 text-sm font-medium ${
                 isPlanActive ? "text-[#ccff00]" : "text-white/70"
               }`}
             >
               My Plan
             </Link>
 
-            {/* Counters */}
-            <div className="flex gap-2 pt-4">
+            <div className="flex gap-6 pt-4">
               <Link
                 href="/my-plan"
                 onClick={closeMobileMenu}
-                className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#ccff00] px-4 py-2.5 text-[#0b0b0b]"
+                className="flex items-center gap-2 text-sm text-white"
               >
-                <span className="text-xs font-black uppercase tracking-widest">
-                  Plan
-                </span>
-
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0b0b0b] px-1.5 text-[11px] font-black text-[#ccff00]">
+                Plan
+                <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-[#ccff00] px-1.5 text-xs font-bold text-black">
                   {planCount}
                 </span>
               </Link>
@@ -199,13 +134,10 @@ export default function Navbar() {
               <Link
                 href="/my-plan"
                 onClick={closeMobileMenu}
-                className="flex flex-1 items-center justify-center gap-2 rounded-full border border-white/30 px-4 py-2.5 text-white"
+                className="flex items-center gap-2 text-sm text-white/70"
               >
-                <span className="text-xs font-black uppercase tracking-widest">
-                  Saved
-                </span>
-
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-white/10 px-1.5 text-[11px] font-black">
+                Saved
+                <span className="flex h-6 min-w-6 items-center justify-center rounded-full border border-white/30 px-1.5 text-xs font-bold text-white">
                   {savedCount}
                 </span>
               </Link>

@@ -13,9 +13,9 @@ export default function Footer() {
           className="flex items-center gap-3"
           aria-label="FitLog Home"
         >
-          <Image src={logo} alt="" />
-          <span className="text-xl font-black tracking-[-0.04em] text-white sm:text-2xl">
-            FIT<span className="text-[#ccff00]">LOG</span>
+          <Image src={logo} alt="" className="h-6 w-auto" />
+          <span className="font-[family-name:var(--font-oswald)] text-xl font-bold tracking-wide text-white">
+            FITLOG
           </span>
         </Link>
 

@@ -1,5 +1,5 @@
-import { Workout } from "@/types/workout";
-import LibraryGrid from "./LibraryGrid";
+import type { Workout } from "@/types/workout";
+import LibraryCard from "./LibrayCard";
 
 
 const getLibrary = async (): Promise<Workout[]> => {
@@ -18,9 +18,20 @@ const Library = async () => {
   return (
     <section
       id="library"
-      className="container mx-auto scroll-mt-20 px-5 py-10 sm:px-6 lg:px-14"
+      className="mx-auto w-full max-w-360 scroll-mt-20 px-5 pb-16 pt-6 sm:px-6"
     >
-      <LibraryGrid workouts={libraryData} />
+      <h2 className="text-3xl uppercase text-white sm:text-[32px]">
+        The Library
+      </h2>
+      <p className="mt-1 text-sm text-[#9DA2AD]">
+        Twelve lifts covering every major muscle group.
+      </p>
+
+      <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {libraryData.map((workout, index) => (
+          <LibraryCard key={workout.id} workout={workout} eager={index < 3} />
+        ))}
+      </div>
     </section>
   );
 };
