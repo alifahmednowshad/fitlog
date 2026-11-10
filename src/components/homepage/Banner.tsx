@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import banner from "../../assets/banner.png";
+import { ArrowDown } from "lucide-react";
 
 export default function Banner() {
   return (
@@ -30,11 +31,8 @@ export default function Banner() {
               </p>
 
               {/* CTA */}
-              <Link
-                href="#library"
-                className="btn mt-6 h-9 min-h-0 rounded-md border-0 bg-[#bfff00] px-5 text-[10px] font-extrabold uppercase tracking-[0.02em] text-[#080909] shadow-none hover:bg-[#bfff00] sm:h-10 sm:px-6 sm:text-xs"
-              >
-                Browse Workouts
+              <Link href="#library" className="btn mt-6 ...">
+                Browse Workouts <ArrowDown size={14} />
               </Link>
             </div>
           </div>

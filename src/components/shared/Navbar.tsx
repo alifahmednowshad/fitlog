@@ -1,5 +1,5 @@
 "use client";
-
+import { useFitLog } from "@/context/FitLogContext";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -48,12 +48,11 @@ const X = ({ size = 21, strokeWidth = 2, ...props }: IconProps) => (
   </svg>
 );
 
-interface NavbarProps {
-  planCount?: number;
-  savedCount?: number;
-}
+export default function Navbar() {
+  const { plan, saved } = useFitLog();
+  const planCount = plan.length;
+  const savedCount = saved.length;
 
-export default function Navbar({ planCount = 0, savedCount = 0 }: NavbarProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -74,7 +73,6 @@ export default function Navbar({ planCount = 0, savedCount = 0 }: NavbarProps) {
           className="group flex shrink-0 items-center gap-2"
           aria-label="FitLog Home"
         >
-          
           <Image src={logo} alt="" />
           <span className="text-xl font-black tracking-[-0.04em] text-white sm:text-2xl">
             FIT<span className="text-[#ccff00]">LOG</span>
